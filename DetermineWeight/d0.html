@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico 2</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+
+var ill;
+var left;
+var right;
+var voice;
+var voice_button;
+var balance_button;
+var thermometer_button;
+var rule_button;
+var ill_p;
+var left_p;
+var right_p;
+var voice_button_p;
+var balance_button_p;
+var thermometer_button_p;
+var rule_button_p;
+
+
+function preload() {
+    game.load.audio('voice', 'assetsAudio/d0.m4a');
+    game.load.image('ill', 'assetsImg/d0.png');
+    game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',90,90);
+    game.load.spritesheet('right', 'assetsImg/arrowright_2.png',90,90);
+    game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
+    game.load.spritesheet('balanceButton', 'assetsImg/balanceButton_2.png',228,185);
+    game.load.spritesheet('ruleButton', 'assetsImg/ruleButton_2.png', 228, 185);
+    game.load.spritesheet('thermometerButton', 'assetsImg/termometerButton_2.png', 228, 185);
+    ill_p=[game.world.centerX, game.world.centerY];
+    left_p=[0, 500];
+    right_p=[700, 250];
+    voice_button_p= [380, 525];
+    balance_button_p=[game.world.centerX-250, game.world.centerY+40];
+    thermometer_button_p=[game.world.centerX, game.world.centerY+40];
+    rule_button_p= [game.world.centerX+250, game.world.centerY+40];
+}
+function create() {
+    game.stage.backgroundColor = "#FFFFFF";
+    ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
+    ill.anchor.setTo(0.5);
+    voice=game.add.audio('voice');
+    voice.play();
+    left=game.add.button(left_p[0], left_p[1], 'left', goLeft, this, 0);
+    //right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
+    voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
+    balance_button=game.add.button(balance_button_p[0], balance_button_p[1], 'balanceButton', goBalance ,this, 0);
+    balance_button.anchor.setTo(0.5);
+    thermometer_button=game.add.button(thermometer_button_p[0], thermometer_button_p[1], 'thermometerButton', goThermometer ,this, 0);
+    thermometer_button.anchor.setTo(0.5);
+    rule_button=game.add.button(rule_button_p[0], rule_button_p[1], 'ruleButton', goRule ,this, 0);
+    rule_button.anchor.setTo(0.5);
+
+
+    localStorage.removeItem('t_m1');
+    localStorage.removeItem('t_m2');
+    localStorage.removeItem('t_m3');
+    localStorage.removeItem('r_m1');
+    localStorage.removeItem('r_m2');
+    localStorage.removeItem('r_m3');
+    localStorage.removeItem('b_m1');
+    localStorage.removeItem('b_m2', ' ');
+    localStorage.removeItem('b_m3', ' ');
+    localStorage.setItem('t_f', 'false');
+    localStorage.setItem('r_f', 'false');
+    localStorage.setItem('b_f', 'false');
+    localStorage.setItem('cameFrom', '0');
+    localStorage.setItem('seenTutorialB', 'false');
+    localStorage.setItem('seenTutorialT', 'false');
+    localStorage.setItem('seenTutorialR', 'false');
+
+    localStorage.setItem('seenTutorialT', 'true');
+    localStorage.setItem('seenTutorialB', 'true');
+    localStorage.setItem('seenTutorialR', 'true');
+}
+function play_sound(){
+    voice.play();
+}
+function goRight(){
+    //window.open("", "_self");
+}
+function goLeft(){
+    console.log("back");
+    window.open("../Story/h47.html", "_self");
+}
+function goThermometer(){
+    console.log("Termometro");
+    localStorage.setItem("i13"+localStorage.getItem("curso"), "0");
+    window.open("termometer.html", "_self");
+}
+function goBalance(){
+    console.log("Balanza");
+    localStorage.setItem("i13"+localStorage.getItem("curso"), "1");
+    window.open("balance.html", "_self");
+}
+function goRule(){
+    console.log("Regla");
+    localStorage.setItem("i13"+localStorage.getItem("curso"), "0");
+    window.open("rule.html", "_self");
+}
+function update(){
+}
+function render() {
+}
+</script>
+
+</body>
+</html>

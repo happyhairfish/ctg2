@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser - Making your first game, part 1</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var width=800;
+var height=600;
+
+
+var game = new Phaser.Game(width, height, Phaser.CANVAS, '', { preload: preload, create: create, update: update, render: render });
+
+var dialogo;
+var map;
+
+var layer1;
+var layer2;
+
+var button1;
+var button2;
+var button3;
+
+var voice_button;
+
+var close_button;
+
+function preload() {
+	game.load.image('dialogo', 'assetsImg/count1_dialogue.png');
+    game.load.image('mapa', 'assetsImg/base_contar.png');
+
+    game.load.spritesheet('button1', 'assets/choose/minimap1_button.png', 200, 250);
+    game.load.spritesheet('button2', 'assets/choose/minimap2_button.png', 200, 250);
+    game.load.spritesheet('button3', 'assets/choose/minimap3_button.png', 200, 250);
+
+    game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
+
+    game.load.audio('voice', 'assetsAudio/count1.m4a');
+
+    game.load.image('left', 'assetsImg/arrowleft_2.png');
+    game.load.image('right', 'assetsImg/arrowright_2.png');
+}
+
+function create() {
+
+    game.stage.backgroundColor = "#FFFFFF";
+
+
+    dialogo=game.add.image(200, 10, 'dialogo');
+		dialogo.scale.setTo(0.65,0.65);
+    map=game.add.image(165,150, 'mapa');
+    map.scale.setTo(0.8,0.8);
+
+    // button1 = game.add.button(100, 200, 'button1', null, this, 1, 0, 2);
+    // button2 = game.add.button(300, 200, 'button2', null, this, 1, 0, 2);
+    // button3 = game.add.button(500, 200, 'button3', null, this, 1, 0, 2);
+
+    voice_button = game.add.button(385, 500, 'voice_button', play_sound ,this, 1, 0, 2);
+
+    voice=game.add.audio('voice');
+    voice.play();
+
+    left=game.add.button(0,250, 'left', goLeft);
+    right=game.add.button(700,250, 'right', goRight);
+    right.visible=false;
+
+    game.time.events.add(Phaser.Timer.SECOND*10, update_right, this);
+}
+function update()
+{
+
+}
+
+function update_right()
+{
+    window.open("../Mechanism/count1_1.html", "_self");
+}
+
+function goLeft()
+{
+    window.open("../Mechanism/start2.html", "_self");
+}
+
+function goRight()
+{
+    window.open("../Mechanism/choose_decision.html", "_self");
+}
+function actionOnClick1()
+{
+    window.open("../Mechanism/part1_s1.html", "_self");
+}
+
+function actionOnClick2()
+{
+    window.open("../Mechanism/part1_s2.html", "_self");
+}
+
+function actionOnClick3()
+{
+    window.open("../Mechanism/part1_s3.html", "_self");
+}
+
+function play_sound()
+{
+    voice.play();
+}
+
+function render() {
+
+    /*game.debug.text('current tile X:'+layer1.getTileX(game.input.activePointer.worldX), 32, 32, 'rgb(0,0,0)');
+    game.debug.text('current tile Y:'+layer1.getTileY(game.input.activePointer.worldY), 32, 48, 'rgb(0,0,0)');
+
+    game.debug.text('current tile:'+mapCopy[layer1.getTileX(game.input.activePointer.worldX)][layer1.getTileY(game.input.activePointer.worldY)], 32, 64, 'rgb(0,0,0)');
+*/
+    //game.debug.text('erase dig bool:'+eraseDigBool, 32, 70, 'rgb(0,0,0)');
+    //game.debug.geom(line1);
+    //game.debug.geom(line2);
+    //game.debug.geom(line3);
+    //game.debug.geom(line4);
+    //game.debug.geom(line5);
+    // game.debug.text("Time until event: " + game.time.events.duration, 32, 32);
+}
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+var ill1;
+var ill2;
+var ill3;
+
+var current;
+var left;
+var right;
+
+var voice;
+var voice_button;
+
+function preload() {
+    game.load.audio('voice', 'assetsAudio/start2_.m4a');
+
+
+    game.load.image('ill1', 'assetsImg/start2_.PNG');
+
+    game.load.image('left', 'assetsImg/arrowleft_2.png');
+    game.load.image('right', 'assetsImg/arrowright_2.png');
+
+    game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
+}
+
+function create() {
+    game.stage.backgroundColor = '#ffffff';
+
+    voice=game.add.audio('voice');
+    voice.play();
+
+    left=game.add.button(0,250, 'left', goLeft);
+    right=game.add.button(700,250, 'right', goRight);
+
+    ill1=game.add.sprite(100,150, 'ill1');
+
+
+    voice_button = game.add.button(350, 525, 'voice_button', play_sound ,this, 1, 0, 2);
+}
+function play_sound()
+{
+    voice.play();
+}
+function goRight()
+{
+    window.open("../Mechanism/count1.html", "_self");
+}
+function goLeft()
+{
+    window.open("../Story/h55.html", "_self");
+}
+
+function update()
+{
+
+}
+
+function render()
+{
+
+}
+</script>
+
+</body>
+</html>

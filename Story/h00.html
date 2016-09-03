@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico 2</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+
+
+function preload() {
+
+}
+function create() {
+    goRight();
+}
+function goRight(){
+    localStorage.setItem('before', '0');
+		localStorage.removeItem('t_m1');
+		localStorage.removeItem('t_m2');
+		localStorage.removeItem('t_m3');
+		localStorage.removeItem('b_m1');
+		localStorage.removeItem('b_m2');
+		localStorage.removeItem('b_m3');
+		localStorage.removeItem('r_m1');
+		localStorage.removeItem('r_m2');
+		localStorage.removeItem('r_m3');
+		localStorage.removeItem('t_f')
+		localStorage.removeItem('r_f')
+		localStorage.removeItem('b_f')
+    localStorage.setItem("bad", "0");
+		localStorage.setItem("curso", "0");
+    //localStorage.setItem('cameFrom', '0');
+    //console.log(localStorage.getItem('before'));
+    window.open("h0_1.html", "_self");
+}
+function update(){
+}
+function render() {
+}
+</script>
+
+</body>
+</html>

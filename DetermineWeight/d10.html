@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico 2</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+
+var ill;
+var order;
+var left;
+var right;
+var voice;
+var voice_button;
+var balance_button;
+var thermometer_button;
+var rule_button;
+var ill_p;
+var left_p;
+var right_p;
+var voice_button_p;
+var balance_button_p;
+var thermometer_button_p;
+var rule_button_p;
+var rtext;
+var btext;
+var ttext;
+var style2= { font: "24px Arial", align: "center" };
+
+function preload() {
+    game.load.audio('voice', 'assetsAudio/d0.m4a');
+    game.load.image('ill', 'assetsImg/d0.png');
+    game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',100,100);
+    game.load.spritesheet('right', 'assetsImg/arrowright_2.png',100,100);
+    game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
+    game.load.spritesheet('balanceButton', 'assetsImg/balanceButton_2.png',230,185);
+    game.load.spritesheet('ruleButton', 'assetsImg/ruleButton_2.png', 230, 185);
+    game.load.spritesheet('thermometerButton', 'assetsImg/termometerButton_2.png', 230, 185);
+    game.load.spritesheet('b10v', 'assetsImg/b10v.png', 113, 61);
+    ill_p=[game.world.centerX, game.world.centerY];
+    left_p=[0, 500];
+    right_p=[700, 500];
+    voice_button_p= [380, 525];
+    balance_button_p=[game.world.centerX-250, game.world.centerY+40];
+    thermometer_button_p=[game.world.centerX, game.world.centerY+40];
+    rule_button_p= [game.world.centerX+250, game.world.centerY+40];
+}
+function create() {
+    game.stage.backgroundColor = "#FFFFFF";
+    ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
+    ill.anchor.setTo(0.5);
+    voice=game.add.audio('voice');
+    voice.play();
+    //left=game.add.button(left_p[0], left_p[1], 'left', goLeft, this, 0);
+    //right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
+    voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
+    balance_button=game.add.button(balance_button_p[0], balance_button_p[1], 'balanceButton', goBalance ,this, 0);
+    balance_button.anchor.setTo(0.5);
+    thermometer_button=game.add.button(thermometer_button_p[0], thermometer_button_p[1], 'thermometerButton', goThermometer ,this, 0);
+    thermometer_button.anchor.setTo(0.5);
+    rule_button=game.add.button(rule_button_p[0], rule_button_p[1], 'ruleButton', goRule ,this, 0);
+    rule_button.anchor.setTo(0.5);
+    checkReady();
+    checkRight();
+
+}
+function play_sound(){
+    voice.play();
+}
+function checkReady(){
+    if(localStorage.getItem('t_f')=='true'){
+        thermometer_button.frame=1;
+        ttext= game.add.text(thermometer_button_p[0], thermometer_button_p[1]+120, "¡Tabla completa!", style2);
+        ttext.anchor.setTo(0.5);
+    }
+    if(localStorage.getItem('b_f')=='true'){
+        balance_button.frame=1;
+        ttext= game.add.text(balance_button_p[0], balance_button_p[1]+120, "¡Tabla completa!", style2);
+        ttext.anchor.setTo(0.5);
+    }
+    if(localStorage.getItem('r_f')=='true'){
+        rule_button.frame=1;
+        ttext= game.add.text(rule_button_p[0], rule_button_p[1]+120, "¡Tabla completa!", style2);
+        ttext.anchor.setTo(0.5);
+    }
+}
+function checkRight(){
+    console.log(localStorage.getItem('cameFrom'));
+    if (localStorage.getItem('cameFrom')=='d12' || localStorage.getItem('cameFrom')=='d14' ){
+        order=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
+    }
+    else{
+        right=game.add.button(right_p[0], right_p[1], 'right', goRight, this, 1,0,2);
+    }
+}
+function checkOrder(){
+    if (localStorage.getItem('cameFrom')=='d12' || localStorage.getItem('cameFrom')=='d14' ){
+        order.visible=true;
+    }
+}
+function goOrder(){
+    var c=localStorage.getItem('cameFrom');
+    localStorage.setItem('cameFrom', '0');
+    if (c=='d12'){
+        window.open("d12.html", "_self");
+    }else if(c=='d14'){
+        window.open("d14.html", "_self");
+    }
+}
+function goRight(){
+    console.log("continue");
+    window.open("d11.html", "_self");
+}
+function goLeft(){
+    console.log("back");
+    //window.open("scene1.html", "_self");
+}
+function goThermometer(){
+    console.log("Termometro");
+    if(localStorage.getItem('seenTutorialT')=='false')
+    {
+        window.open("d4.html", "_self");
+    }else{
+        window.open("termometer.html", "_self");
+    }
+
+}
+function goBalance(){
+    console.log("Balanza");
+    if(localStorage.getItem('seenTutorialB')=='false')
+    {
+        window.open("d1.html", "_self");
+    }else{
+        window.open("balance.html", "_self");
+    }
+}
+function goRule(){
+    console.log("Regla");
+    if(localStorage.getItem('seenTutorialR')=='false')
+    {
+        window.open("d7.html", "_self");
+    }else{
+        window.open("rule.html", "_self");
+    }
+}
+function update(){
+}
+function render() {
+}
+</script>
+
+</body>
+</html>

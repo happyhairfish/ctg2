@@ -1,0 +1,440 @@
+part1_big.html:633 
+ X:4 Y: 4 MapCopy: 12
+part1_big.html:682 
+ X:4 Y: 4 Tile: 20
+part1_big.html:633 
+ X:4 Y: 3 MapCopy: 11
+part1_big.html:633 
+ X:5 Y: 4 MapCopy: 12
+part1_big.html:682 
+ X:5 Y: 4 Tile: 20
+part1_big.html:633 
+ X:5 Y: 3 MapCopy: 11
+part1_big.html:633 
+ X:6 Y: 4 MapCopy: 12
+part1_big.html:682 
+ X:6 Y: 4 Tile: 20
+part1_big.html:633 
+ X:6 Y: 3 MapCopy: 11
+part1_big.html:633 
+ X:7 Y: 4 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 5 MapCopy: 2
+part1_big.html:642 XXXXasdasd1
+part1_big.html:708 
+Rock X: 6 Y: 5 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 6 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 5 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 5 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 4 Tile: 3
+part1_big.html:708 
+Rock X: 6 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 7 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 8 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 9 Tile: 3
+part1_big.html:722 XXXXRock2 X:6 Y:9
+part1_big.html:633 
+ X:6 Y: 9 MapCopy: 12
+part1_big.html:682 
+ X:6 Y: 9 Tile: 20
+part1_big.html:633 
+ X:6 Y: 8 MapCopy: 30
+part1_big.html:682 
+ X:6 Y: 8 Tile: 20
+part1_big.html:633 
+ X:6 Y: 7 MapCopy: 30
+part1_big.html:682 
+ X:6 Y: 7 Tile: 20
+part1_big.html:633 
+ X:6 Y: 6 MapCopy: 30
+part1_big.html:682 
+ X:6 Y: 6 Tile: 20
+part1_big.html:633 
+ X:6 Y: 5 MapCopy: 31
+part1_big.html:682 
+ X:6 Y: 5 Tile: 20
+part1_big.html:633 
+ X:6 Y: 4 MapCopy: 20
+part1_big.html:633 
+ X:7 Y: 5 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 6 MapCopy: 20
+part1_big.html:633 
+ X:5 Y: 5 MapCopy: 1
+part1_big.html:633 
+ X:7 Y: 6 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 7 MapCopy: 20
+part1_big.html:633 
+ X:5 Y: 6 MapCopy: 1
+part1_big.html:633 
+ X:7 Y: 7 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 8 MapCopy: 20
+part1_big.html:633 
+ X:5 Y: 7 MapCopy: 1
+part1_big.html:633 
+ X:7 Y: 8 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 9 MapCopy: 20
+part1_big.html:633 
+ X:5 Y: 8 MapCopy: 1
+part1_big.html:633 
+ X:7 Y: 9 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 10 MapCopy: 12
+part1_big.html:682 
+ X:6 Y: 10 Tile: 20
+part1_big.html:633 
+ X:6 Y: 9 MapCopy: 20
+part1_big.html:633 
+ X:7 Y: 10 MapCopy: 1
+part1_big.html:633 
+ X:6 Y: 11 MapCopy: 12
+part1_big.html:682 
+ X:6 Y: 11 Tile: 20
+part1_big.html:633 
+ X:6 Y: 10 MapCopy: 20
+part1_big.html:633 
+ X:7 Y: 11 MapCopy: 12
+part1_big.html:682 
+ X:7 Y: 11 Tile: 20
+part1_big.html:633 
+ X:7 Y: 10 MapCopy: 1
+part1_big.html:633 
+ X:8 Y: 11 MapCopy: 12
+part1_big.html:682 
+ X:8 Y: 11 Tile: 20
+part1_big.html:633 
+ X:8 Y: 10 MapCopy: 12
+part1_big.html:682 
+ X:8 Y: 10 Tile: 20
+part1_big.html:633 
+ X:8 Y: 9 MapCopy: 12
+part1_big.html:682 
+ X:8 Y: 9 Tile: 20
+part1_big.html:633 
+ X:8 Y: 8 MapCopy: 2
+part1_big.html:648 XXXXasdasd3
+part1_big.html:708 
+Rock X: 8 Y: 8 Tile: 5
+part1_big.html:830 
+Rock 2 X: 8 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 8 Y: 7 Tile: 5
+part1_big.html:830 
+Rock 2 X: 8 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 8 Y: 6 Tile: 5
+part1_big.html:830 
+Rock 2 X: 8 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 8 Y: 5 Tile: 5
+part1_big.html:830 
+Rock 2 X: 8 Y: 5 Tile: 5
+part1_big.html:708 
+Rock X: 8 Y: 4 Tile: 3
+part1_big.html:728 XXXXRock4 X:8 Y:4
+part1_big.html:633 
+ X:8 Y: 4 MapCopy: 12
+part1_big.html:682 
+ X:8 Y: 4 Tile: 20
+part1_big.html:633 
+ X:8 Y: 3 MapCopy: 11
+part1_big.html:633 
+ X:9 Y: 4 MapCopy: 12
+part1_big.html:682 
+ X:9 Y: 4 Tile: 20
+part1_big.html:633 
+ X:9 Y: 3 MapCopy: 11
+part1_big.html:633 
+ X:10 Y: 4 MapCopy: 12
+part1_big.html:682 
+ X:10 Y: 4 Tile: 20
+part1_big.html:633 
+ X:10 Y: 3 MapCopy: 11
+part1_big.html:633 
+ X:11 Y: 4 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 5 MapCopy: 12
+part1_big.html:682 
+ X:10 Y: 5 Tile: 20
+part1_big.html:633 
+ X:10 Y: 4 MapCopy: 20
+part1_big.html:633 
+ X:11 Y: 5 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 6 MapCopy: 2
+part1_big.html:654 XXXXasdasd5
+part1_big.html:708 
+Rock X: 10 Y: 6 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 5 Tile: 3
+part1_big.html:708 
+Rock X: 10 Y: 7 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 8 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 9 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 9 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 10 Tile: 3
+part1_big.html:734 XXXXRock6 X:10 Y:10
+part1_big.html:633 
+ X:10 Y: 10 MapCopy: 12
+part1_big.html:682 
+ X:10 Y: 10 Tile: 20
+part1_big.html:633 
+ X:10 Y: 9 MapCopy: 30
+part1_big.html:682 
+ X:10 Y: 9 Tile: 20
+part1_big.html:633 
+ X:10 Y: 8 MapCopy: 30
+part1_big.html:682 
+ X:10 Y: 8 Tile: 20
+part1_big.html:633 
+ X:10 Y: 7 MapCopy: 30
+part1_big.html:682 
+ X:10 Y: 7 Tile: 20
+part1_big.html:633 
+ X:10 Y: 6 MapCopy: 30
+part1_big.html:682 
+ X:10 Y: 6 Tile: 20
+part1_big.html:633 
+ X:10 Y: 5 MapCopy: 20
+part1_big.html:633 
+ X:11 Y: 6 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 7 MapCopy: 20
+part1_big.html:633 
+ X:9 Y: 6 MapCopy: 1
+part1_big.html:633 
+ X:11 Y: 7 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 8 MapCopy: 20
+part1_big.html:633 
+ X:9 Y: 7 MapCopy: 1
+part1_big.html:633 
+ X:11 Y: 8 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 9 MapCopy: 20
+part1_big.html:633 
+ X:9 Y: 8 MapCopy: 1
+part1_big.html:633 
+ X:11 Y: 9 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 10 MapCopy: 20
+part1_big.html:633 
+ X:9 Y: 9 MapCopy: 1
+part1_big.html:633 
+ X:11 Y: 10 MapCopy: 1
+part1_big.html:633 
+ X:10 Y: 11 MapCopy: 12
+part1_big.html:682 
+ X:10 Y: 11 Tile: 20
+part1_big.html:633 
+ X:10 Y: 10 MapCopy: 20
+part1_big.html:633 
+ X:11 Y: 11 MapCopy: 12
+part1_big.html:682 
+ X:11 Y: 11 Tile: 20
+part1_big.html:633 
+ X:11 Y: 10 MapCopy: 1
+part1_big.html:633 
+ X:12 Y: 11 MapCopy: 2
+part1_big.html:660 XXXXasdasd7
+part1_big.html:708 
+Rock X: 12 Y: 11 Tile: 4
+part1_big.html:830 
+Rock 2 X: 12 Y: 11 Tile: 4
+part1_big.html:708 
+Rock X: 11 Y: 11 Tile: 3
+part1_big.html:708 
+Rock X: 13 Y: 11 Tile: 9
+part1_big.html:830 
+Rock 2 X: 13 Y: 11 Tile: 9
+part1_big.html:708 
+Rock X: 12 Y: 11 Tile: 4
+part1_big.html:708 
+Rock X: 13 Y: 10 Tile: 5
+part1_big.html:830 
+Rock 2 X: 13 Y: 10 Tile: 5
+part1_big.html:708 
+Rock X: 13 Y: 9 Tile: 5
+part1_big.html:830 
+Rock 2 X: 13 Y: 9 Tile: 5
+part1_big.html:708 
+Rock X: 13 Y: 8 Tile: 3
+part1_big.html:740 XXXXRock8 X:13 Y:8
+part1_big.html:633 
+ X:13 Y: 9 MapCopy: 30
+part1_big.html:682 
+ X:13 Y: 9 Tile: 20
+part1_big.html:633 
+ X:13 Y: 8 MapCopy: 12
+part1_big.html:682 
+ X:13 Y: 8 Tile: 20
+part1_big.html:633 
+ X:13 Y: 7 MapCopy: 12
+part1_big.html:682 
+ X:13 Y: 7 Tile: 20
+part1_big.html:633 
+ X:13 Y: 6 MapCopy: 12
+part1_big.html:682 
+ X:13 Y: 6 Tile: 20
+part1_big.html:633 
+ X:13 Y: 5 MapCopy: 12
+part1_big.html:682 
+ X:13 Y: 5 Tile: 20
+part1_big.html:633 
+ X:13 Y: 4 MapCopy: 1
+part1_big.html:633 
+ X:14 Y: 5 MapCopy: 2
+part1_big.html:666 XXXXasdasd9
+part1_big.html:708 
+Rock X: 14 Y: 5 Tile: 4
+part1_big.html:830 
+Rock 2 X: 14 Y: 5 Tile: 4
+part1_big.html:708 
+Rock X: 13 Y: 5 Tile: 3
+part1_big.html:708 
+Rock X: 15 Y: 5 Tile: 6
+part1_big.html:830 
+Rock 2 X: 15 Y: 5 Tile: 6
+part1_big.html:708 
+Rock X: 14 Y: 5 Tile: 4
+part1_big.html:708 
+Rock X: 15 Y: 6 Tile: 5
+part1_big.html:830 
+Rock 2 X: 15 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 15 Y: 5 Tile: 6
+part1_big.html:708 
+Rock X: 15 Y: 7 Tile: 5
+part1_big.html:830 
+Rock 2 X: 15 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 15 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 15 Y: 8 Tile: 3
+part1_big.html:746 XXXXRock10 X:15 Y:7
+part1_big.html:633 
+ X:15 Y: 8 MapCopy: 12
+part1_big.html:682 
+ X:15 Y: 8 Tile: 20
+part1_big.html:633 
+ X:15 Y: 7 MapCopy: 30
+part1_big.html:682 
+ X:15 Y: 7 Tile: 20
+part1_big.html:633 
+ X:15 Y: 6 MapCopy: 30
+part1_big.html:682 
+ X:15 Y: 6 Tile: 20
+part1_big.html:633 
+ X:15 Y: 5 MapCopy: 30
+part1_big.html:682 
+ X:15 Y: 5 Tile: 20
+part1_big.html:633 
+ X:15 Y: 4 MapCopy: 1
+part1_big.html:633 Uncaught TypeError: Cannot read property '5' of undefinedfindPathGround @ part1_big.html:633findPathGround @ part1_big.html:687findPathGround @ part1_big.html:685findPathGround @ part1_big.html:685findPathGround @ part1_big.html:685waterPath @ part1_big.html:461c.SignalBinding.execute @ phaser.min.js:8c.Signal.dispatch @ phaser.min.js:8c.Button.onInputUpHandler @ phaser.min.js:14c.SignalBinding.execute @ phaser.min.js:8c.Signal.dispatch @ phaser.min.js:8c.Events.hasOwnProperty.e.indexOf.c.Events.(anonymous function).c.Events.(anonymous function) @ phaser.min.js:12c.InputHandler._releasedHandler @ phaser.min.js:11c.ArraySet.callAll @ phaser.min.js:18c.Pointer.stop @ phaser.min.js:10c.Mouse.onMouseUp @ phaser.min.js:10_onMouseUp @ phaser.min.js:10
+part1_big.html:633 
+ X:4 Y: 4 MapCopy: 20
+part1_big.html:708 
+Rock X: 6 Y: 5 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 5 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 4 Tile: 3
+part1_big.html:708 
+Rock X: 6 Y: 6 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 5 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 7 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 8 Tile: 5
+part1_big.html:830 
+Rock 2 X: 6 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 6 Y: 9 Tile: 3
+part1_big.html:722 XXXXRock2 X:6 Y:9
+part1_big.html:633 
+ X:6 Y: 9 MapCopy: 20
+part1_big.html:708 
+Rock X: 8 Y: 8 Tile: 5
+part1_big.html:633 
+ X:8 Y: 4 MapCopy: 20
+part1_big.html:708 
+Rock X: 10 Y: 6 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 5 Tile: 3
+part1_big.html:708 
+Rock X: 10 Y: 7 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 6 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 8 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 7 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 9 Tile: 5
+part1_big.html:830 
+Rock 2 X: 10 Y: 9 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 8 Tile: 5
+part1_big.html:708 
+Rock X: 10 Y: 10 Tile: 3
+part1_big.html:633 
+ X:10 Y: 10 MapCopy: 20
+part1_big.html:708 
+Rock X: 12 Y: 11 Tile: 4
+part1_big.html:633 
+ X:13 Y: 9 MapCopy: 20
+part1_big.html:708 
+Rock X: 14 Y: 5 Tile: 4
+part1_big.html:633 
+ X:15 Y: 8 MapCopy: 20

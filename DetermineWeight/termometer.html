@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico 2</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+var width=800;
+var height=600;
+var game = new Phaser.Game(width, height, Phaser.CANVAS, '', { preload: preload, create: create, update: update, render: render});
+
+var tanks;
+var rules;
+var A_p;
+var B_p;
+var C_p;
+var block1;
+var block2;
+var block3;
+var block1_p;
+var block2_p;
+var block3_p;
+var measure1={blockused: false, instrument: null, obj: null, result: null, intable: false, ok: null};
+var measure2={blockused: false, instrument: null, obj: null, result: null, intable: false, ok: null};
+var measure3={blockused: false, instrument: null, obj: null, result: null, intable: false, ok: null};
+var add_table1;
+var erase1;
+var add_table2;
+var erase2;
+var add_table3;
+var erase3;
+var table={fulltable: false, lines: null, measures: 0 };
+var buttontools;
+var buttontutorial;
+var right;
+var right_p;
+var style = { font: "12px Arial", align: "center" };
+var textA=null;
+var textB=null;
+var textC=null;
+var textA_p;
+var textB_p;
+var textC_p;
+var voice;
+var voice_button;
+var voice_button_p;
+var rule_p;
+var buttontools_p;
+
+function preload(){
+	game.load.spritesheet('right', 'assetsImg/arrowright_2.png',90,90);
+    game.load.image('A', 'assetsImg/A.png');
+    game.load.image('B', 'assetsImg/B.png');
+    game.load.image('C', 'assetsImg/C.png');
+    game.load.image('back', 'assetsImg/backT.png');
+    game.load.image('rule', 'assetsImg/rope_movil2.png');
+    game.load.image('block', 'assetsImg/block.png');
+    game.load.spritesheet('reload', 'assetsImg/delete_2.png', 66,67);
+    game.load.spritesheet('goTable', 'assetsImg/shapes_2.png', 72,71);
+    game.load.image('tfull', 'assetsImg/tablaCompleta2.png');
+    game.load.spritesheet('tutorial', 'assetsImg/go_tutorial.png', 98,46);
+    game.load.spritesheet('tools', 'assetsImg/choose_tool.png', 113,61);
+    game.load.image('ok', 'assetsImg/k.png');
+    game.load.audio('voice', 'assetsAudio/termometer_2.m4a');
+    game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
+    game.load.spritesheet('b10v', 'assetsImg/b10v.png', 113, 61);
+    A_p=[557, 73];
+    B_p=[630, 73];
+    C_p=[700, 73];
+    block1_p=[112,343];
+		block2_p=[279,343];
+		block3_p=[446,343];
+    textA_p=[677, 288];
+    textB_p=[677, 356];
+    textC_p=[677, 424];
+    right_p=[700, 500];
+    voice_button_p= [80, 120];
+    rule_p=[220,145];
+    buttontools_p=[50,50];
+}
+
+function create(){
+	game.physics.startSystem(Phaser.Physics.ARCADE);
+	game.stage.backgroundColor = "#FFFFFF";
+	game.add.sprite(0, 0, 'back');
+	voice=game.add.audio('voice');
+    voice.play();
+    voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
+ 	//Bloques
+	block1=game.add.sprite(block1_p[0],block1_p[1],'block');
+	block1.anchor.setTo(0.5);
+	block1.enableBody=true;
+	block2=game.add.sprite(block2_p[0],block2_p[1],'block');
+	block2.anchor.setTo(0.5);
+	block2.enableBody=true;
+	block3=game.add.sprite(block3_p[0],block3_p[1],'block');
+	block3.anchor.setTo(0.5);
+	block3.enableBody=true;
+	//Tanques
+	tanks=game.add.group();
+	tanks.enableBody=true;
+	var A=tanks.create(A_p[0], A_p[1],'A');
+	A.body.collideWorldBounds = true;
+	var B=tanks.create(B_p[0], B_p[1],'B');
+	B.body.collideWorldBounds = true;
+	var C=tanks.create(C_p[0], C_p[1],'C');
+	C.body.collideWorldBounds = true;
+	A.inputEnabled=true;
+	A.input.enableDrag(false,true);
+	A.events.onDragStart.add(startDrag,this);
+	A.events.onDragStop.add(stopDrag,this);
+	B.inputEnabled=true;
+	B.input.enableDrag(false,true);
+	B.events.onDragStart.add(startDrag,this);
+	B.events.onDragStop.add(stopDrag,this);
+	C.inputEnabled=true;
+	C.input.enableDrag(false,true);
+	C.events.onDragStart.add(startDrag,this);
+	C.events.onDragStop.add(stopDrag,this);
+	//Instrumento
+	rules=game.add.group();
+	rules.enableBody=true;
+	var rule=rules.create(rule_p[0], rule_p[1],'rule');
+	rule.inputEnabled=true;
+	rule.input.enableDrag(false,true);
+	rule.events.onDragStart.add(startDrag,this);
+	rule.events.onDragStop.add(stopDrag,this);
+	rule.body.collideWorldBounds = true;
+	//Medidas
+	measure1.ok=game.add.sprite(165,250,'ok');
+	measure1.ok.anchor.setTo(0.5);
+	measure1.ok.visible=false;
+	measure2.ok=game.add.sprite(330,250,'ok');
+	measure2.ok.anchor.setTo(0.5);
+	measure2.ok.visible=false;
+	measure3.ok=game.add.sprite(500,250,'ok');
+	measure3.ok.anchor.setTo(0.5);
+	measure3.ok.visible=false;
+
+	//Botones
+	erase1=game.add.button(40,480, 'reload', eraseMeasure1, this, 1,0,2);
+	add_table1=game.add.button(115,480, 'goTable', goTable1, this, 1,0,2);
+	erase2=game.add.button(210,480, 'reload', eraseMeasure2, this, 1,0,2);
+	add_table2=game.add.button(285,480, 'goTable', goTable2, this, 1,0,2);
+	erase3=game.add.button(375,480, 'reload', eraseMeasure3, this, 1,0,2);
+	add_table3=game.add.button(450,480, 'goTable', goTable3, this, 1,0,2);
+	buttontools=game.add.button(buttontools_p[0], buttontools_p[1],'tools', goTools, this,0);
+	//buttontutorial=game.add.button(buttontools_p[0], buttontools_p[1],'tutorial', goTutorial, this,1,0,2);
+
+	checkRight();
+	reloadTable();
+}
+function play_sound(){
+    voice.play();
+}
+function checkRight(){
+	console.log(localStorage.getItem('cameFrom'));
+    if (localStorage.getItem('cameFrom')=='d12' || localStorage.getItem('cameFrom')=='d14' ){
+        right=game.add.button(right_p[0]-20, right_p[1], 'b10v', goOrder, this, 1,0,2);
+    }
+    else{
+        right=game.add.button(right_p[0], right_p[1], 'right', goRight, this, 1,0,2);
+    }
+    right.visible=false;
+}
+function reloadTable(){
+	if(localStorage.getItem('t_m1')!=null){
+		textA = game.add.text(textA_p[0], textA_p[1], localStorage.getItem('t_m1'), style);
+		table.measures++;
+	}
+	if(localStorage.getItem('t_m2')!=null){
+		textB = game.add.text(textB_p[0], textB_p[1], localStorage.getItem('t_m2'), style);
+		table.measures++;
+	}
+	if(localStorage.getItem('t_m3')!=null){
+		textC = game.add.text(textC_p[0], textC_p[1], localStorage.getItem('t_m3'), style);
+		table.measures++;
+	}
+	checkfull();
+}
+function checkfull(){
+	if (table.measures>=2 && localStorage.getItem('i24'+localStorage.getItem("curso"))=="no contestada"){
+		localStorage.setItem('i24'+localStorage.getItem("curso"), '1');
+	}
+	if (table.measures>=3){
+		table.fulltable=true;
+		table.lines= game.add.sprite(572,220,'tfull');
+		localStorage.setItem('t_f', 'true');
+	}
+}
+function erasefull(){
+	if(table.fulltable==true){
+		table.fulltable=false;
+		table.lines.destroy();
+		localStorage.setItem('t_f', 'false');
+	}
+}
+function update(){
+	game.physics.arcade.collide(tanks, rules, onTouch, null, this);
+
+	if((measure1.blockused && measure2.blockused && measure3.blockused)||(localStorage.getItem('t_m1')!=null || localStorage.getItem('t_m2')!=null || localStorage.getItem('t_m3')!=null))
+        right.visible=true;
+    else
+    	right.visible=false;
+}
+function onTouch(obj1, rule0){
+	if (rule0.overlap(block1) && obj1.overlap(block1) && !measure1.blockused){
+    	var text = game.add.text(textA_p[0], textA_p[1], textTank(obj1), style);
+    	doMeasure(measure1, obj1, rule0, text);
+	} else if(rule0.overlap(block2)&& obj1.overlap(block2) && !measure2.blockused){
+    	var text = game.add.text(textB_p[0], textB_p[1], textTank(obj1), style);
+    	doMeasure(measure2, obj1, rule0, text);
+	} else if(rule0.overlap(block3)&& obj1.overlap(block3) && !measure3.blockused){
+    	var text = game.add.text(textC_p[0], textC_p[1], textTank(obj1), style);
+    	doMeasure(measure3, obj1, rule0, text);
+	}else {
+		console.log("No area de medición");
+	}
+}
+function textTank(obj1){
+	if (obj1.key=='A'){
+		return "A es pesado";
+	} else if(obj1.key=='B'){
+		return "B es pesado";
+	}else{
+		return "C es liviano";
+	}
+}
+function doMeasure(measure, obj1, obj2, text){
+		var key=obj1.key;
+		if (key=='A'){
+			measure.obj=game.add.sprite(obj1.x, obj1.y, 'A');
+		} else if(key=='B'){
+			measure.obj=game.add.sprite(obj1.x, obj1.y, 'B');
+		}else{
+			measure.obj=game.add.sprite(obj1.x, obj1.y, 'C');
+		}
+		measure.instrument=game.add.sprite(obj2.x, obj2.y, 'rule');
+		measure.result=text;
+		measure.result.visible=false;
+		measure.blockused=true;
+		measure.ok.visible=true;
+		obj1.destroy();
+		obj2.destroy();
+		reloadElements(key);
+}
+function reloadElements(key){
+	var rule=rules.create(rule_p[0], rule_p[1], 'rule');
+	rule.inputEnabled=true;
+	rule.input.enableDrag(false,true);
+	rule.events.onDragStart.add(startDrag,this);
+	rule.events.onDragStop.add(stopDrag,this);
+	rule.body.collideWorldBounds = true;
+	var tank;
+	if (key=='A'){
+		tank=tanks.create(A_p[0], A_p[1],'A');
+	} else if(key=='B'){
+		tank=tanks.create(B_p[0], B_p[1],'B');
+	}else{
+		tank=tanks.create(C_p[0], C_p[1],'C');
+	}
+	tank.body.collideWorldBounds = true;
+	tank.inputEnabled=true;
+	tank.input.enableDrag(false,true);
+	tank.events.onDragStart.add(startDrag,this);
+	tank.events.onDragStop.add(stopDrag,this);
+}
+//Funciones de botones
+function eraseMeasure1(){
+	if (measure1.blockused==true){
+		measure1.blockused=false;
+		measure1.ok.visible=false;
+		measure1.instrument.destroy();
+		measure1.obj.destroy();
+		measure1.result.destroy();
+		if (measure1.intable== true){
+			measure1.intable=false;
+			table.measures--;
+			localStorage.removeItem("t_m1");
+			erasefull();
+		}
+	}
+}
+function eraseMeasure2(){
+	if (measure2.blockused==true){
+		measure2.blockused=false;
+		measure2.ok.visible=false;
+		measure2.instrument.destroy();
+		measure2.obj.destroy();
+		measure2.result.destroy();
+		if (measure2.intable== true){
+			measure2.intable=false;
+			table.measures--;
+			localStorage.removeItem("t_m2");
+			erasefull();
+		}
+	}
+}
+function eraseMeasure3(){
+	if (measure3.blockused==true){
+		measure3.blockused=false;
+		measure3.ok.visible=false;
+		measure3.instrument.destroy();
+		measure3.obj.destroy();
+		measure3.result.destroy();
+		if (measure3.intable== true){
+			measure3.intable=false;
+			table.measures--;
+			localStorage.removeItem("t_m3");
+			erasefull();
+		}
+	}
+}
+function goTable1 (){
+	if (measure1.blockused==true){
+		if(textA!=null){
+			textA.destroy();
+			textA=null;
+			table.measures--;
+		}
+		measure1.result.visible=true;
+		measure1.intable= true;
+		table.measures++;
+		localStorage.setItem('t_m1', measure1.result._text);
+		checkfull();
+	}
+}
+function goTable2 (){
+	if (measure2.blockused==true){
+		if(textB!=null){
+			textB.destroy();
+			textB=null;
+			table.measures--;
+		}
+		measure2.result.visible=true;
+		measure2.intable= true;
+		table.measures++;
+		localStorage.setItem('t_m2', measure2.result._text);
+		checkfull();
+	}
+}
+function goTable3 (){
+	if (measure3.blockused==true){
+		if(textC!=null){
+			textC.destroy();
+			textC=null;
+			table.measures--;
+		}
+		measure3.result.visible=true;
+		measure3.intable= true;
+		table.measures++;
+		localStorage.setItem('t_m3', measure3.result._text);
+		checkfull();
+	}
+}
+function goTools() {
+	localStorage.setItem('i31'+localStorage.getItem('curso'), '1');
+	window.open("d10.html", "_self");
+}
+function goRight(){
+	window.open("d11.html", "_self");
+}
+function goTutorial(){
+	window.open("d4.html", "_self");
+}
+function goOrder(){
+    var c=localStorage.getItem('cameFrom');
+    localStorage.setItem('cameFrom', '0');
+    if (c=='d12'){
+        window.open("d12.html", "_self");
+    }else if(c=='d14'){
+        window.open("d14.html", "_self");
+    }
+}
+// Funciones para la fisica
+function startDrag(sprite){
+	sprite.body.moves=false;
+}
+function stopDrag(sprite){
+	sprite.body.moves=true;
+}
+function render() {
+    //game.debug.inputInfo(32, 32);
+}
+
+</script>
+
+</body>
+</html>

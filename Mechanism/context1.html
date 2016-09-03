@@ -1,0 +1,126 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico</title>
+    <script src="phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+    
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+var ill1;
+var ill2;
+var ill3;
+
+var current;
+var left;
+var right;
+
+var storm;
+
+function preload() {
+    game.load.audio('storm', ['assets/storm.mp3', 'assets/storm.ogg']);
+
+
+    game.load.image('ill1', 'assets/illl1-1.png');
+    game.load.image('ill2', 'assets/illl2.png');
+    game.load.image('ill3', 'assets/illl3.png');
+
+    game.load.image('left', 'assets/arrowleft.png');
+    game.load.image('right', 'assets/arrowright.png');
+    
+    current=1;
+}
+
+function create() {
+
+    storm=game.add.audio('storm');
+  
+    storm.stop();
+
+
+    left=game.add.sprite(0,250, 'left');
+    right=game.add.sprite(700,250, 'right');
+
+    ill1=game.add.sprite(100, 0, 'ill1');
+    ill1.visible=false;
+    ill2=game.add.sprite(100, 0, 'ill2');
+    ill2.visible=false;
+    ill3=game.add.sprite(100, 0, 'ill3');
+    ill3.visible=false;
+
+    right.inputEnabled = true;
+    right.input.useHandCursor = true;
+    right.events.onInputDown.add(pressRight, this);
+
+    left.inputEnabled = true;
+    left.input.useHandCursor = true;
+    left.events.onInputDown.add(pressLeft, this);
+}
+
+function pressRight()
+{
+    if(current+1<4)
+        current++;
+}
+function pressLeft()
+{
+    if(current-1>0)
+        current--;
+}
+
+function update()
+{
+
+    if(current==1)
+    {
+        left.visible=false;
+    }
+    else
+    {
+        left.visible=true;
+    }
+
+    if(current==1)
+    {
+        ill1.visible=true;
+        ill2.visible=false;
+        ill3.visible=false;
+
+        storm.restart();
+    }
+    else if(current==2)
+    {
+
+        ill1.visible=false;
+        ill2.visible=true;
+        ill3.visible=false;
+
+
+    }
+    else if(current==3)
+    {
+        ill1.visible=false;
+        ill2.visible=false;
+        ill3.visible=true;
+        storm.restart();
+    }
+
+}
+
+function render()
+{
+    game.debug.text('current:'+current, 32, 32, 'rgb(255,255,255)');
+    game.debug.soundInfo(storm, 32, 50);
+}
+</script>
+
+</body>
+</html>
