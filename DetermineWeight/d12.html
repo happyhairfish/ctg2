@@ -73,7 +73,7 @@ var m3_p;
 
 
 function preload() {
-    game.load.audio('voice', 'assetsAudio/d12.m4a');
+    game.load.audio('voice', 'assetsAudio/d12.mp3');
     game.load.image('ill', 'assetsImg/d12.png');
     game.load.image('A', 'assetsImg/Ac.png');
     game.load.image('B', 'assetsImg/Bc.png');
@@ -311,7 +311,7 @@ function play_sound(){
     voice.play();
 }
 function goRight(){
-	if(checkOverlap(block1, rock1) && checkOverlap(block2, rock2) && checkOverlap(block3, rock3)){
+	if(checkOverlap(block1, rock3) && checkOverlap(block2, rock2) && checkOverlap(block3, rock1)){
 			localStorage.setItem('i23'+localStorage.getItem("curso"), '1');
 	}
 	else {
@@ -319,7 +319,7 @@ function goRight(){
 	}
 
 
-    window.open("d13.html", "_self");
+    window.open("../Story/h48.html", "_self");
 }
 function goLeft(){
     window.open("d11.html", "_self");

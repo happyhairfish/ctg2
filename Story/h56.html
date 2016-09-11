@@ -39,6 +39,8 @@ function preload() {
     voice_button_p= [380, 525];
 }
 function create() {
+		if(localStorage.getItem('i32'+localStorage.getItem("curso"))!='1')
+			localStorage.setItem('i32'+localStorage.getItem("curso"),'0');
     game.stage.backgroundColor = "#FFFFFF";
     ill=game.add.sprite(game.world.centerX, game.world.centerY, 'ill');
     ill.anchor.setTo(0.5);

@@ -186,7 +186,7 @@ function preload() {
   game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
 
   game.load.image('dialogo', 'assetsImg/part3_ins_dialogue.png');
-  game.load.audio('voice', 'assetsAudio/part3_ins.m4a');
+  game.load.audio('voice', 'assetsAudio/part3_ins.mp3');
 
   game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
 
@@ -256,8 +256,7 @@ function pasteMap()
 }
 
 function create() {
-    if(localStorage.getItem('i32'+localStorage.getItem("curso"))!='1')
-      localStorage.setItem('i32'+localStorage.getItem("curso"),'0');
+
 
     //popupl.scale.set(0);
 

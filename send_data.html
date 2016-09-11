@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Cómic Pensamiento Crítico</title>
+    <script src="phaser.min.js"></script>
+		<!-- <script src="FileSaver.min.js"></script> -->
+    <script src="jquery-latest.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+var ill1;
+var ill2;
+var ill3;
+
+var current;
+var left;
+var right;
+
+var voice;
+var voice_button;
+
+function preload() {
+		game.load.audio('voice', 'assets/mid/voice4.mp3');
+
+
+		game.load.image('ill1', 'assets/end/ill1.png');
+
+		game.load.image('left', 'assets/arrowleft.png');
+		game.load.image('right', 'assets/arrowright.png');
+
+		game.load.spritesheet('voice_button', 'assets/choose/button_voice.png', 100, 50);
+}
+
+function create() {
+
+		game.stage.backgroundColor = '#ffffff';
+
+		/*voice=game.add.audio('voice');
+		voice.play();
+
+		// left=game.add.button(0,250, 'left', goLeft);*/
+		// right=game.add.button(700,250, 'right', goRight);
+
+		ill1=game.add.sprite(150,15, 'ill1');
+
+		// voice_button = game.add.button(350, 525, 'voice_button', play_sound ,this, 1, 0, 2);
+}
+function play_sound()
+{
+		voice.play();
+}
+function goRight()
+{
+		window.open("../Mechanism/end2.php", "_self");
+}
+function goLeft()
+{
+		window.open("../Mechanism/start.html", "_self");
+}
+
+function update()
+{
+
+}
+
+function render()
+{
+
+}
+var request = {
+	id:
+	i1: localStorage.getItem("i_1"),
+i2: localStorage.getItem("i_2"),
+i3: localStorage.getItem("i_3"),
+i4: localStorage.getItem("i_4"),
+i5: localStorage.getItem("i_5"),
+i6: localStorage.getItem("i_6"),
+i7: localStorage.getItem("i_7"),
+i8: localStorage.getItem("i_8"),
+i9: localStorage.getItem("i_9"),
+i10: localStorage.getItem("i_10"),
+i11: localStorage.getItem("i_11"),
+i12: localStorage.getItem("i_12"),
+i13: localStorage.getItem("i_13"),
+i14: localStorage.getItem("i_14"),
+i15: localStorage.getItem("i_15"),
+i16: localStorage.getItem("i_16"),
+i17: localStorage.getItem("i_17"),
+i18: localStorage.getItem("i_18"),
+i19: localStorage.getItem("i_19"),
+i20: localStorage.getItem("i_20"),
+i21: localStorage.getItem("i_21"),
+i22: localStorage.getItem("i_22"),
+i23: localStorage.getItem("i_23"),
+i24: localStorage.getItem("i_24"),
+i25: localStorage.getItem("i_25"),
+i26: localStorage.getItem("i_26"),
+i27: localStorage.getItem("i_27"),
+i28: localStorage.getItem("i_28"),
+i29: localStorage.getItem("i_29"),
+i30: localStorage.getItem("i_30"),
+i31: localStorage.getItem("i_31"),
+i32: localStorage.getItem("i_32")
+};
+console.log(JSON.stringify(request));
+
+$.ajax({
+    data: JSON.stringify(request),
+    type: "POST",
+    contentType: "application/json",
+    url: "receive_data.php"
+})
+ .done(
+
+   function( data, textStatus, jqXHR ) {
+     if ( console && console.log ) {
+         console.log( "La solicitud se ha completado correctamente." );
+				 console.log( "La solicitud se ha completado correctamente."+textStatus );
+				 console.log( "La solicitud se ha completado correctamente."+jqXHR.responseText);
+     }
+ })
+ .fail(function( jqXHR, textStatus, errorThrown, XHR ) {
+     if ( console && console.log ) {
+         console.log( "La solicitud ha fallado: " +  textStatus);
+         console.log( "La solicitud ha fallado: " +  errorThrown);
+         console.log( "La solicitud ha fallado: " +  jqXHR.responseText);
+     }
+});
+</script>
+
+</body>
+</html>

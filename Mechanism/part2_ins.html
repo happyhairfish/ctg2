@@ -148,11 +148,22 @@ var buttonnum5bool=false;
 var buttonnum6bool=false;
 var buttonnum7bool=false;
 
+var buttonopt1bool=false;
+var buttonopt2bool=false;
 
+var option_button1;
+var option_button2;
+
+var table_left_title;
+var table_left_title2;
+var table_right_title;
 
 function preload() {
 
     // game.load.spritesheet('buttoncavar', 'assets/textures/tierra-cavada-75-2.png', 75,75);
+    game.load.spritesheet('option_button1', 'assetsImg/option_button2.png', 150,50);
+    game.load.spritesheet('option_button2', 'assetsImg/option_button1.png', 150,50);
+
 
     game.load.spritesheet('buttonpipe5', 'assetsImg/button_pipe5.png', 75,75);
     game.load.spritesheet('buttonpipe6', 'assetsImg/button_pipe6.png', 75,75);
@@ -188,7 +199,7 @@ function preload() {
     game.load.spritesheet('buttonreset', 'assets/textures/boton_reset.png', 200, 100);
     game.load.spritesheet('buttoncontinue', 'assetsImg/boton_continue2.png', 100, 50);
 
-    game.load.tilemap('map', 'assetsImg/tilemap_part1_ins7.csv', null, Phaser.Tilemap.CSV);
+    game.load.tilemap('map', 'assetsImg/tilemap_part1_ins10.csv', null, Phaser.Tilemap.CSV);
     game.load.image('tiles', 'assetsImg/tiles4.png');
     game.load.image('tileselector', 'assets/tileselector1.png');
 
@@ -201,10 +212,10 @@ function preload() {
 
     game.load.bitmapFont('desyrel', 'assets/fonts/desyrel.png', 'assets/fonts/desyrel.xml');
 
-    game.load.image('dialogo', 'assetsImg/part2_ins_dialogue.png');
+    game.load.image('dialogo', 'assetsImg/part2_ins_dialogue4.png');
 
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
-    game.load.audio('voice', 'assetsAudio/part2_ins.m4a');
+    game.load.audio('voice', 'assetsAudio/part2_ins.mp3');
 }
 function copyMap()
 {
@@ -362,40 +373,14 @@ function create() {
 
     buttonpipe6.scale.setTo(0.75,0.75);
 
+    buttonpipe1.visible=false;
+    buttonpipe2.visible=false;
+    buttonpipe3.visible=false;
+    buttonpipe4.visible=false;
+    buttonpipe5.visible=false;
+    buttonpipe6.visible=false;
 
-/*
-    //Botón erase dig
-    buttonerasedig = game.add.button(50, 375, 'buttonerasedig', buttonEraseDig, this, 0, 0, 1, 0);
-    buttonerasedig.input.useHandCursor = true;
-    buttonerasedigbool=false;
 
-    //Botón erase pipe
-    buttonerasepipe = game.add.button(100, 375, 'buttonerasepipe', buttonErasePipe, this, 0, 0, 1, 0);
-    buttonerasepipe.input.useHandCursor = true;
-    buttonerasepipebool=false;
-*/
-     /*   //Botón erase dig
-    button2 = game.add.button(1000, 1000, 'button2', null, this, 0, 0, 1, 0);
-    button2.input.useHandCursor = true;
-    eraseDigBool=false;
-
-*/
-    /*
-    popups = game.add.sprite(game.world.centerX, game.world.centerY, 'popup_start');
-    popups.anchor.set(0.5);
-    popups.inputEnabled = true;
-    popups.scale.set(0);
-
-    var closeButton = game.make.sprite((popups.height/2)+220, -(popups.width/2)-85, 'close');
-    closeButton.inputEnabled = true;
-    closeButton.input.priorityID = 1;
-    closeButton.input.useHandCursor = true;
-    closeButton.events.onInputDown.add(closePopupS, this);
-
-    popups.addChild(closeButton);
-
-    openPopupS();
-    */
 
     //Botón release water
     button3 = game.add.button(50, 460, 'buttonreleasewater', waterPath, this, 0, 0, 1);
@@ -432,56 +417,20 @@ function create() {
         }
     }
 
-    /*var graphics = game.add.graphics(500, 200);
+    table_left_title = game.add.text(513, 210, "Porque el ratón para en", style_title);
+    table_left_title.visible=false;
 
-    // set a line style
-    graphics.lineStyle(6, 0xFFFFFF);
+    table_left_title2 = game.add.text(513, 240, "la celda", style_title);
+    table_left_title2.visible=false;
 
-    //línea vertical
-    graphics.moveTo(150,0);
-    graphics.lineTo(150,400);
+    table_right_title = game.add.text(513, 410, "que tiene", style_title);
+    table_right_title.visible=false;
 
-    //línea horizontal 1
-    graphics.moveTo(0,50);
-    graphics.lineTo(300,50);
+    option_button1 = game.add.button(580, 40, 'option_button1', buttonOptAction1, this, 1, 0, 0);
+    option_button1.input.useHandCursor = true;
+    option_button2 = game.add.button(580, 120, 'option_button2', buttonOptAction2, this, 1, 0, 0);
+    option_button2.input.useHandCursor = true;
 
-    //línea horizontal 2
-    graphics.moveTo(0,100);
-    graphics.lineTo(300,100);
-
-    //línea horizontal 3
-    graphics.moveTo(0,150);
-    graphics.lineTo(300,150);
-
-    //línea horizontal 4
-    graphics.moveTo(0,200);
-    graphics.lineTo(300,200);
-
-
-    //línea horizontal 5
-    graphics.moveTo(0,250);
-    graphics.lineTo(300,250);
-
-
-    //línea horizontal 6
-    graphics.moveTo(0,300);
-    graphics.lineTo(300,300);
-
-
-    //línea horizontal 7
-    graphics.moveTo(0,350);
-    graphics.lineTo(300,350);
-
-
-    //línea horizontal 8
-    graphics.moveTo(0,400);
-    graphics.lineTo(300,400);*/
-
-    var table_left_title = game.add.text(513, 210, "Porque el ratón se detiene en", style_title);
-
-    var table_left_title = game.add.text(513, 240, "la celda", style_title);
-
-    var table_right_title = game.add.text(513, 410, "que tiene", style_title);
 
     var tile = game.add.text(218, 214, "1", style_map2);
     var tile1 = game.add.text(270, 214, "2", style_map2);
@@ -491,19 +440,8 @@ function create() {
     var tile5 = game.add.text(318, 364, "6", style_map2);
     var tile6 = game.add.text(318, 414, "7", style_map2);
 
-    // var text_b = game.add.text(465, 210, "B", style_map2);
-
-    /*var table1 = game.add.text(568, 262, "1", style_map2);
-    var table2 = game.add.text(568, 312, "2", style_map2);
-    var table3 = game.add.text(568, 362, "3", style_map2);
-    var table4 = game.add.text(568, 412, "4", style_map2);
-    var table5 = game.add.text(568, 462, "5", style_map2);
-    var table6 = game.add.text(568, 512, "6", style_map2);
-    var table7 = game.add.text(568, 562, "7", style_map2);
-
-
-*/voice=game.add.audio('voice');
-  voice.play();
+    voice=game.add.audio('voice');
+    voice.play();
 
 
     buttonnum1 = game.add.button(540, 285, 'button_num1', buttonAction1, this, 1, 0, 0);
@@ -527,7 +465,20 @@ function create() {
     buttonnum7 = game.add.button(690, 352, 'button_num7', buttonAction7, this, 1, 0, 0);
     buttonnum7.input.useHandCursor = true;
 
-    dialogo=game.add.image(210, 30, 'dialogo');
+    buttonnum1.visible=false;
+
+    buttonnum2.visible=false;
+
+    buttonnum3.visible=false;
+
+    buttonnum4.visible=false;
+
+    buttonnum5.visible=false;
+
+    buttonnum6.visible=false;
+
+
+    dialogo=game.add.image(0, 10, 'dialogo');
     dialogo.scale.setTo(0.80,0.80);
 
 
@@ -562,22 +513,23 @@ function create() {
 
     popupl.scale.set(0);
 
-   /* buttonreset=game.make.sprite(-100, 0, 'buttonreset1');
-    buttonreset.inputEnabled = true;
-    buttonreset.input.priorityID=-1000;
-    buttonreset.events.onInputDown.add(buttonResetAction, this);
-
-    popupl.addChild(buttonreset);*/
-
-    // back_button=game.add.button(25,525,'back', goBack, 0,1);
-
-
-
 }
 
 function play_sound()
 {
     voice.play();
+}
+
+function buttonOptAction1()
+{
+  buttonopt1bool=true;
+  buttonopt2bool=false;
+}
+
+function buttonOptAction2()
+{
+  buttonopt1bool=false;
+  buttonopt2bool=true;
 }
 
 function buttonAction1()
@@ -655,9 +607,14 @@ function checkAnswer()
     var bAux=false;
 
     console.log(currentTile);
+    console.log(buttonopt1bool);
+    console.log(buttonopt2bool);
 
-    if((buttonnum1bool || buttonnum2bool || buttonnum3bool || buttonnum4bool || buttonnum5bool || buttonnum6bool || buttonnum7bool) && (buttondigbool || buttonpipe1bool || buttonpipe2bool || buttonpipe3bool || buttonpipe4bool || buttonpipe5bool || buttonpipe6bool))
+    // if((buttonnum1bool || buttonnum2bool || buttonnum3bool || buttonnum4bool || buttonnum5bool || buttonnum6bool || buttonnum7bool) && (buttondigbool || buttonpipe1bool || buttonpipe2bool || buttonpipe3bool || buttonpipe4bool || buttonpipe5bool || buttonpipe6bool) && (buttonopt2bool || buttonopt1bool))
+    //     bAux=true;
+    if(buttonopt2bool || buttonopt1bool)
         bAux=true;
+
 
     if(bAux)
     {
@@ -840,6 +797,56 @@ function waterPath()
 
 function update()
 {
+  if(buttonopt1bool)
+  {
+    option_button1.frame=1;
+  }
+  else
+  {
+    option_button1.frame=0;
+  }
+
+  if(buttonopt2bool)
+  {
+    option_button2.frame=1;
+    table_left_title.visible=true;
+    table_left_title2.visible=true;
+    table_right_title.visible=true;
+    buttonnum1.visible=true;
+    buttonnum2.visible=true;
+    buttonnum3.visible=true;
+    buttonnum4.visible=true;
+    buttonnum5.visible=true;
+    buttonnum6.visible=true;
+    buttonnum7.visible=true;
+    buttonpipe1.visible=true;
+    buttonpipe2.visible=true;
+    buttonpipe3.visible=true;
+    buttonpipe4.visible=true;
+    buttonpipe5.visible=true;
+    buttonpipe6.visible=true;
+  }
+  else
+  {
+    option_button2.frame=0;
+    table_left_title.visible=false;
+    table_left_title2.visible=false;
+    table_right_title.visible=false;
+    buttonnum1.visible=false;
+    buttonnum2.visible=false;
+    buttonnum3.visible=false;
+    buttonnum4.visible=false;
+    buttonnum5.visible=false;
+    buttonnum6.visible=false;
+    buttonnum7.visible=false;
+    buttonpipe1.visible=false;
+    buttonpipe2.visible=false;
+    buttonpipe3.visible=false;
+    buttonpipe4.visible=false;
+    buttonpipe5.visible=false;
+    buttonpipe6.visible=false;
+  }
+
     if(buttonnum1bool)
         buttonnum1.frame=1;
     else

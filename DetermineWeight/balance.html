@@ -68,6 +68,8 @@ var pesaAigualA3;
 var pesaBigualB3;
 var pesaCigualC3;
 var style = { font: "12px Arial", align: "center" };
+var style2 = { font: "14px Arial", fontStyle:"bold", align: "center" };
+
 var textA=null;
 var textB=null;
 var textC=null;
@@ -102,10 +104,14 @@ var voice;
 var voice_button;
 var voice_button_p;
 
+var text21;
+var text22;
+var text23;
+
 
 function preload(){
     game.load.image('ground', 'assetsImg/piso.png');
-	game.load.image('A', 'assetsImg/A.png');
+		game.load.image('A', 'assetsImg/A.png');
     game.load.image('B', 'assetsImg/B.png');
     game.load.image('C', 'assetsImg/C.png');
     game.load.image('back', 'assetsImg/backB.png');
@@ -113,53 +119,53 @@ function preload(){
     game.load.image('platei', 'assetsImg/pivote2d_3.png');
     game.load.image('plated', 'assetsImg/pivote2d_3.png');
     game.load.image('block', 'assetsImg/block.png');
-    game.load.spritesheet('basurero', 'assetsImg/delete_2.png', 66,67);
-    game.load.spritesheet('add', 'assetsImg/shapes_2.png', 72,71);
+    game.load.spritesheet('basurero', 'assetsImg/sacar_medicion_de_tabla2.png', 75,57);
+    game.load.spritesheet('add', 'assetsImg/medicion_a_tabla.png', 75,57);
     game.load.image('tfull', 'assetsImg/tablaCompleta2.png');
     game.load.spritesheet('tools', 'assetsImg/choose_tool.png', 113,60);
     game.load.image('ok', 'assetsImg/k.png');
-	game.load.image('pesaBmayADer', 'assetsImg/pesaBmayADer2.png');
-	game.load.image('pesaBmayAIzq', 'assetsImg/pesaBmayAIzq2.png');
-	game.load.image('pesaCmayADer', 'assetsImg/pesaCmayADer2.png');
-	game.load.image('pesaCmayBIzq', 'assetsImg/pesaCmayBIzq2.png');
-	game.load.image('pesaCmayBDer', 'assetsImg/pesaCmayBDer2.png');
-	game.load.image('pesaCmayAIzq', 'assetsImg/pesaCmayAIzq2.png');
-	game.load.image('pesaAigualA', 'assetsImg/pesaAigualA2.png');
-	game.load.image('pesaBigualB', 'assetsImg/pesaBigualB2.png');
-	game.load.image('pesaCigualC', 'assetsImg/pesaCigualC2.png');
-	game.load.spritesheet('right', 'assetsImg/arrowright_2.png',89,89);
-    game.load.audio('voice', 'assetsAudio/balance.m4a');
+		game.load.image('pesaBmayADer', 'assetsImg/pesaBmayADer2.png');
+		game.load.image('pesaBmayAIzq', 'assetsImg/pesaBmayAIzq2.png');
+		game.load.image('pesaCmayADer', 'assetsImg/pesaCmayADer2.png');
+		game.load.image('pesaCmayBIzq', 'assetsImg/pesaCmayBIzq2.png');
+		game.load.image('pesaCmayBDer', 'assetsImg/pesaCmayBDer2.png');
+		game.load.image('pesaCmayAIzq', 'assetsImg/pesaCmayAIzq2.png');
+		game.load.image('pesaAigualA', 'assetsImg/pesaAigualA2.png');
+		game.load.image('pesaBigualB', 'assetsImg/pesaBigualB2.png');
+		game.load.image('pesaCigualC', 'assetsImg/pesaCigualC2.png');
+		game.load.spritesheet('right', 'assetsImg/arrowright_2.png',89,89);
+    game.load.audio('voice', 'assetsAudio/balance.mp3');
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
-	game.load.spritesheet('button_tutorial','assetsImg/go_tutorial.png',98,46);
-	game.load.spritesheet('b10v', 'assetsImg/b10v.png', 113, 61);
-	A_p=[557, 73];
+		game.load.spritesheet('button_tutorial','assetsImg/go_tutorial.png',98,46);
+		game.load.spritesheet('b10v', 'assetsImg/b10v.png', 113, 61);
+		A_p=[557, 73];
     B_p=[630, 73];
     C_p=[700, 73];
     block1_p=[112,343];
-	block2_p=[279,343];
-	block3_p=[446,343];
+		block2_p=[279,343];
+		block3_p=[446,343];
     right_p=[700, 500];
     pivImg1_p=[block1_p[0],block1_p[1]+50];
-	pivImg2_p=[block2_p[0],block2_p[1]+50];
-	pivImg3_p=[block3_p[0],block3_p[1]+50];
-	tutorial_button_p=[50,50];
-	textA_p=[677, 268];
+		pivImg2_p=[block2_p[0],block2_p[1]+50];
+		pivImg3_p=[block3_p[0],block3_p[1]+50];
+		tutorial_button_p=[50,50];
+		textA_p=[677, 268];
     textB_p=[677, 336];
     textC_p=[677, 404];
     ground_p=[535,190];
     p1l_p=[pivImg1_p[0]-20, pivImg1_p[1]-10];
-	p1r_p=[pivImg1_p[0]+20, pivImg1_p[1]-10];
-	p2l_p=[pivImg2_p[0]-20, pivImg2_p[1]-10];
-	p2r_p=[pivImg2_p[0]+20, pivImg2_p[1]-10];
-	p3l_p=[pivImg3_p[0]-20, pivImg3_p[1]-10];
-	p3r_p=[pivImg3_p[0]+20, pivImg3_p[1]-10];
-	measure1.cx=textA_p[0];
-	measure1.cy=textA_p[1];
-	measure2.cx=textB_p[0];
-	measure2.cy=textB_p[1];
-	measure3.cx=textC_p[0];
-	measure3.cy=textC_p[1];
-	voice_button_p= [80, 120];
+		p1r_p=[pivImg1_p[0]+20, pivImg1_p[1]-10];
+		p2l_p=[pivImg2_p[0]-20, pivImg2_p[1]-10];
+		p2r_p=[pivImg2_p[0]+20, pivImg2_p[1]-10];
+		p3l_p=[pivImg3_p[0]-20, pivImg3_p[1]-10];
+		p3r_p=[pivImg3_p[0]+20, pivImg3_p[1]-10];
+		measure1.cx=textA_p[0];
+		measure1.cy=textA_p[1];
+		measure2.cx=textB_p[0];
+		measure2.cy=textB_p[1];
+		measure3.cx=textC_p[0];
+		measure3.cy=textC_p[1];
+		voice_button_p= [80, 120];
 
 }
 function create(){
@@ -353,12 +359,12 @@ function create(){
 	measure3.ok.visible=false;
 
 	//Se agregan los botones de agregar y borrar a la tabla
-	button1=game.add.button(40,480, 'basurero', eraseMeasure1, this, 1,0,2);
-	button11=game.add.button(115,480, 'add', goTable1, this, 1,0,2);
-	button2=game.add.button(210,480, 'basurero', eraseMeasure2, this, 1,0,2);
-	button21=game.add.button(285,480, 'add', goTable2, this, 1,0,2);
-	button3=game.add.button(375,480, 'basurero', eraseMeasure3, this, 1,0,2);
-	button31=game.add.button(450,480, 'add', goTable3, this, 1,0,2);
+	button1=game.add.button(40,530, 'basurero', eraseMeasure1, this, 1,0,2);
+	button11=game.add.button(115,530, 'add', goTable1, this, 1,0,2);
+	button2=game.add.button(210,530, 'basurero', eraseMeasure2, this, 1,0,2);
+	button21=game.add.button(285,530, 'add', goTable2, this, 1,0,2);
+	button3=game.add.button(375,530, 'basurero', eraseMeasure3, this, 1,0,2);
+	button31=game.add.button(450,530, 'add', goTable3, this, 1,0,2);
 
 	checkRight();
 	reloadTable();
@@ -494,6 +500,7 @@ function doMeasure(m){
 
 	if(m.name=="1")
 	{
+		text21 = game.add.text(70, 465,m.pl.key+m.midtext+m.pr.key, style2);
 		mAdone=true;
 		pivImg1.visible=false;
 		if(m.pl.key=='A' && m.pr.key=='A')
@@ -517,6 +524,7 @@ function doMeasure(m){
 	}
 	else if(m.name=="2")
 	{
+		text22 = game.add.text(240, 465,m.pl.key+m.midtext+m.pr.key, style2);
 		mBdone=true;
 		pivImg2.visible=false;
 		if(m.pl.key=='A' && m.pr.key=='A')
@@ -540,6 +548,7 @@ function doMeasure(m){
 	}
 	else if(m.name=="3")
 	{
+		text23 = game.add.text(400, 465,m.pl.key+m.midtext+m.pr.key, style2);
 		mCdone=true;
 		pivImg3.visible=false;
 		if(m.pl.key=='A' && m.pr.key=='A')
@@ -587,6 +596,7 @@ function reloadRock(obj){
 	rock.events.onDragStop.add(stopDrag,this);
 }
 function eraseMeasure1(){
+	text21.destroy();
 	mAdone=false;
 	pivImg1.visible=true;
 	pesaAigualA1.visible=false;
@@ -624,6 +634,7 @@ function eraseMeasure1(){
 	}
 }
 function eraseMeasure2(){
+	text22.destroy();
 	mBdone=false;
 	pivImg2.visible=true;
 	pesaAigualA2.visible=false;
@@ -661,6 +672,7 @@ function eraseMeasure2(){
 	}
 }
 function eraseMeasure3(){
+	text23.destroy();
 	mCdone=false;
 	pivImg3.visible=true;
 	pesaAigualA3.visible=false;

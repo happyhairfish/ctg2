@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<title>Cómic Pensamiento Crítico 2</title>
     <script src="phaser.min.js"></script>
+		<script src="../node_modules/phaser-input/build/phaser-input.js"></script>
     <style type="text/css">
         body {
             margin: 0;
@@ -36,12 +37,18 @@ var b_button_bool=false;
 var c_button_bool=false;
 var d_button_bool=false;
 
+var input;
+var test;
+var text_aux3;
 
 function preload() {
+		game.add.plugin(Fabrique.Plugins.InputField);
+
     game.load.audio('voice', 'assetsAudio/h0_1.mp3');
     game.load.image('ill', 'assetsImg/h0.png');
     game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',90,90);
     game.load.spritesheet('right', 'assetsImg/arrowright_2.png',89,89);
+		game.load.spritesheet('input', 'assetsImg/boton_input.png',200,100);
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
 		game.load.spritesheet('5a', 'assetsImg/5a_2.png', 150, 150);
 		game.load.spritesheet('5b', 'assetsImg/5b_2.png', 150, 150);
@@ -53,22 +60,50 @@ function preload() {
     voice_button_p= [380, 525];
 }
 function create() {
+		input = game.add.inputField(530, 150, {
+			font: '18px Arial',
+			fill: '#212121',
+			fontWeight: 'bold',
+			width: 200,
+			padding: 8,
+			borderWidth: 1,
+			borderColor: '#000',
+			borderRadius: 6,
+			placeHolder: 'Número de Tablet'
+		});
+		var text_aux1 = game.add.text(75, 150, 'Ingresa el número de tu tablet:', { font: "30px Arial", fill: "#000000" });
     game.stage.backgroundColor = "#FFFFFF";
+
+		var text_aux2 = game.add.text(75, 400, 'Número de tablet:', { font: "30px Arial", fill: "#000000" });
+
+
+
     // ill=game.add.sprite(game.world.centerX, game.world.centerY, 'ill');
     // ill.anchor.setTo(0.5);
-    voice=game.add.audio('voice');
-    voice.play();
+    // voice=game.add.audio('voice');
+    // voice.play();
     //left=game.add.button(left_p[0], left_p[1], 'left', /*goLeft, this, 0);
-		text = game.add.text(75, 32, 'Apreta el botón que corresponde a tu curso', { font: "30px Arial", fill: "#000000" });
+		text = game.add.text(75, 32, 'BIENVENIDOS AL JUEGO 2', { font: "60px Arial", fill: "#000000" });
 
     right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
-		right.visible=false;
-		a_button=game.add.button(150,100, '5a', a_button_action, this, 0);
-		b_button=game.add.button(150,300, '5b', b_button_action, this, 0);
-		c_button=game.add.button(400,100, '5c', c_button_action, this, 0);
-		d_button=game.add.button(400,300, '5d', d_button_action, this, 0);
-    voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
+		right.visible=true;
+
+		test=game.add.button(300,200, 'input', showId, this, 0);
+		// a_button=game.add.button(150,100, '5a', a_button_action, this, 0);
+		// b_button=game.add.button(150,300, '5b', b_button_action, this, 0);
+		// c_button=game.add.button(400,100, '5c', c_button_action, this, 0);
+		// d_button=game.add.button(400,300, '5d', d_button_action, this, 0);
+    // voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
     console.log(localStorage.getItem("bad"));
+}
+function showId()
+{
+	if(text_aux3 != null)
+		text_aux3.destroy();
+	text_aux3 = game.add.text(350, 400, input.value, { font: "30px Arial", fill: "#000000" });
+
+	localStorage.setItem('id',input.value);
+	console.log(localStorage.getItem('id'));
 }
 function play_sound(){
     voice.play();
@@ -106,14 +141,15 @@ function goLeft(){
 }
 function goRight(){
 
-	if(a_button_bool)
-		localStorage.setItem("curso", "a");
-	else if(b_button_bool)
-		localStorage.setItem("curso", "b");
-	else if(c_button_bool)
-		localStorage.setItem("curso", "c");
-	else if(d_button_bool)
-		localStorage.setItem("curso", "d");
+	// if(a_button_bool)
+	// 	localStorage.setItem("curso", "a");
+	// else if(b_button_bool)
+	// 	localStorage.setItem("curso", "b");
+	// else if(c_button_bool)
+	// 	localStorage.setItem("curso", "c");
+	// else if(d_button_bool)
+	// 	localStorage.setItem("curso", "d");
+		localStorage.setItem('curso', '5');
 
 		localStorage.setItem('i8'+localStorage.getItem('curso'), 'no contestada');
 		localStorage.setItem('i9'+localStorage.getItem('curso'), 'no contestada');
@@ -152,32 +188,32 @@ function goRight(){
     window.open("h0.html", "_self");
 }
 function update(){
-	if(a_button_bool)
-		a_button.frame=1;
-	else
-		a_button.frame=0;
-
-	if(b_button_bool)
-		b_button.frame=1;
-	else
-		b_button.frame=0;
-
-	if(c_button_bool)
-		c_button.frame=1;
-	else
-		c_button.frame=0;
-
-	if(d_button_bool)
-		d_button.frame=1;
-	else
-		d_button.frame=0;
-
-
-		if(a_button_bool || b_button_bool || c_button_bool || d_button_bool)
-			right.visible=true;
-		else {
-			right.visible=false;
-		}
+	// if(a_button_bool)
+	// 	a_button.frame=1;
+	// else
+	// 	a_button.frame=0;
+	//
+	// if(b_button_bool)
+	// 	b_button.frame=1;
+	// else
+	// 	b_button.frame=0;
+	//
+	// if(c_button_bool)
+	// 	c_button.frame=1;
+	// else
+	// 	c_button.frame=0;
+	//
+	// if(d_button_bool)
+	// 	d_button.frame=1;
+	// else
+	// 	d_button.frame=0;
+	//
+	//
+	// 	if(a_button_bool || b_button_bool || c_button_bool || d_button_bool)
+	// 		right.visible=true;
+	// 	else {
+	// 		right.visible=false;
+	// 	}
 }
 function render() {
 }
