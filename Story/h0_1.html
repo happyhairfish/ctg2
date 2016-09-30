@@ -86,7 +86,7 @@ function create() {
 		text = game.add.text(75, 32, 'BIENVENIDOS AL JUEGO 2', { font: "60px Arial", fill: "#000000" });
 
     right=game.add.button(right_p[0],right_p[1], 'right', goRight, this, 0);
-		right.visible=true;
+		right.visible=false;
 
 		test=game.add.button(300,200, 'input', showId, this, 0);
 		// a_button=game.add.button(150,100, '5a', a_button_action, this, 0);
@@ -95,6 +95,8 @@ function create() {
 		// d_button=game.add.button(400,300, '5d', d_button_action, this, 0);
     // voice_button = game.add.button(voice_button_p[0], voice_button_p[1], 'voice_button', play_sound ,this, 0);
     console.log(localStorage.getItem("bad"));
+
+		localStorage.setItem('id','')
 }
 function showId()
 {
@@ -188,6 +190,12 @@ function goRight(){
     window.open("h0.html", "_self");
 }
 function update(){
+
+	if(localStorage.getItem('id')!='')
+		right.visible=true;
+	else {
+		right.visible=false;
+	}
 	// if(a_button_bool)
 	// 	a_button.frame=1;
 	// else
@@ -216,6 +224,7 @@ function update(){
 	// 	}
 }
 function render() {
+	// game.debug.text('id: '+localStorage.getItem('id'), 32,47, 'rgb(0,0,0)');
 }
 </script>
 
