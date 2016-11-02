@@ -40,13 +40,13 @@ var C_p;
 
 function preload() {
     game.load.audio('voice', 'assetsAudio/q12.mp3');
-    game.load.image('ill', 'assetsImg/q12.png');
+    game.load.image('ill', 'assetsImg/q12_1.png');
     game.load.spritesheet('left', 'assetsImg/arrowleft_2.png',90,90);
     game.load.spritesheet('right', 'assetsImg/arrowright_2.png',89,89);
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3_50.png', 50, 50);
     game.load.spritesheet('back_button', 'assetsImg/back_story.png', 162, 81);
     game.load.spritesheet('A', 'assetsImg/q12a.png', 380 , 80 );
-    game.load.spritesheet('B', 'assetsImg/q12b.png', 380 , 80 );
+    game.load.spritesheet('B', 'assetsImg/q12b_3.png', 380 , 80 );
     game.load.spritesheet('C', 'assetsImg/q12c.png', 380 , 80 );
     ill_p=[game.world.centerX, game.world.centerY];
     left_p=[0, 250];
@@ -101,7 +101,7 @@ function AnsC(){
     C_press=true;
 }
 function goLeft(){
-    window.open("q9.html", "_self");
+    window.open("q8.html", "_self");
 }
 function goRight(){
     if(A_press){

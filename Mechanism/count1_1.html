@@ -42,16 +42,16 @@ var tween = null;
 var closeButton;
 
 function preload() {
-	game.load.image('dialogo', 'assetsImg/count1_1_dialogue.png');
+		game.load.image('dialogo', 'assetsImg/count1_1_dialogue.png');
     game.load.image('mapa', 'assetsImg/base_contar.png');
 
     game.load.spritesheet('button30', 'assets/choose/minimap1_button.png', 200, 250);
     game.load.spritesheet('button33', 'assets/choose/minimap2_button.png', 200, 250);
     game.load.spritesheet('button3', 'assets/choose/minimap3_button.png', 200, 250);
 
-    game.load.spritesheet('option33', 'assetsImg/9.png', 100, 50);
-    game.load.spritesheet('option34', 'assetsImg/12.png', 100, 50);
-    game.load.spritesheet('option30', 'assetsImg/10.png', 100, 50);
+    game.load.spritesheet('option33', 'assetsImg/16.png', 100, 50);
+    game.load.spritesheet('option34', 'assetsImg/20.png', 100, 50);
+    game.load.spritesheet('option30', 'assetsImg/24.png', 100, 50);
 
     game.load.spritesheet('voice_button', 'assetsImg/button_voice3.png', 100, 50);
     game.load.spritesheet('enter_answer_button', 'assets/contar/ingresar_rspta_3.png', 100, 50);
@@ -167,7 +167,7 @@ function answer()
     }
     else
     {
-        window.open("../Mechanism/count2.html", "_self");
+        window.open("../Mechanism/count1_2.html", "_self");
     }
 
 }
@@ -208,9 +208,9 @@ function goRight()
 		if(button30_bool || button33_bool)
 			localStorage.setItem('i7'+localStorage.getItem("curso"),'0');
 		else if (button34_bool) {
-			localStorage.setItem('i7'+localStorage.getItem("curso"),'1');
+			localStorage.setItem('i7'+localStorage.getItem("curso"),'0.5');
 		}
-    window.open("../Mechanism/mid1.html", "_self");
+    window.open("../Mechanism/count1_2.html", "_self");
 }
 function actionOnClick1()
 {

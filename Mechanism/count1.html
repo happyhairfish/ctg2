@@ -35,8 +35,8 @@ var voice_button;
 var close_button;
 
 function preload() {
-	game.load.image('dialogo', 'assetsImg/count1_dialogue.png');
-    game.load.image('mapa', 'assetsImg/base_contar.png');
+		game.load.image('dialogo', 'assetsImg/count1_dialogue.png');
+    game.load.image('mapa', 'assetsImg/base_contar2.png');
 
     game.load.spritesheet('button1', 'assets/choose/minimap1_button.png', 200, 250);
     game.load.spritesheet('button2', 'assets/choose/minimap2_button.png', 200, 250);
@@ -59,6 +59,8 @@ function create() {
 		dialogo.scale.setTo(0.65,0.65);
     map=game.add.image(165,150, 'mapa');
     map.scale.setTo(0.8,0.8);
+		if(localStorage.getItem("show")=="0")
+			map.visible=false;
 
     // button1 = game.add.button(100, 200, 'button1', null, this, 1, 0, 2);
     // button2 = game.add.button(300, 200, 'button2', null, this, 1, 0, 2);
@@ -73,7 +75,7 @@ function create() {
     right=game.add.button(700,250, 'right', goRight);
     right.visible=false;
 
-    game.time.events.add(Phaser.Timer.SECOND*10, update_right, this);
+    game.time.events.add(Phaser.Timer.SECOND*14, update_right, this);
 }
 function update()
 {
@@ -82,6 +84,7 @@ function update()
 
 function update_right()
 {
+	localStorage.setItem("show","0");
     window.open("../Mechanism/count1_1.html", "_self");
 }
 

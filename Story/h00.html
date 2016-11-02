@@ -24,6 +24,7 @@ function create() {
     goRight();
 }
 function goRight(){
+		localStorage.removeItem("show");
     localStorage.setItem('before', '0');
 		localStorage.removeItem('t_m1');
 		localStorage.removeItem('t_m2');

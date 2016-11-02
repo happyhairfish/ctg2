@@ -116,8 +116,8 @@ function preload(){
     game.load.image('C', 'assetsImg/C.png');
     game.load.image('back', 'assetsImg/backB.png');
     game.load.image('piv', 'assetsImg/pesa2.png');
-    game.load.image('platei', 'assetsImg/pivote2d_3.png');
-    game.load.image('plated', 'assetsImg/pivote2d_3.png');
+    game.load.image('platei', 'assetsImg/pivote2d_4.png');
+    game.load.image('plated', 'assetsImg/pivote2d_4.png');
     game.load.image('block', 'assetsImg/block.png');
     game.load.spritesheet('basurero', 'assetsImg/sacar_medicion_de_tabla2.png', 75,57);
     game.load.spritesheet('add', 'assetsImg/medicion_a_tabla.png', 75,57);
@@ -153,12 +153,12 @@ function preload(){
     textB_p=[677, 336];
     textC_p=[677, 404];
     ground_p=[535,190];
-    p1l_p=[pivImg1_p[0]-20, pivImg1_p[1]-10];
-		p1r_p=[pivImg1_p[0]+20, pivImg1_p[1]-10];
-		p2l_p=[pivImg2_p[0]-20, pivImg2_p[1]-10];
-		p2r_p=[pivImg2_p[0]+20, pivImg2_p[1]-10];
-		p3l_p=[pivImg3_p[0]-20, pivImg3_p[1]-10];
-		p3r_p=[pivImg3_p[0]+20, pivImg3_p[1]-10];
+    p1l_p=[pivImg1_p[0]-38, pivImg1_p[1]-10];
+		p1r_p=[pivImg1_p[0]+38, pivImg1_p[1]-10];
+		p2l_p=[pivImg2_p[0]-38, pivImg2_p[1]-10];
+		p2r_p=[pivImg2_p[0]+38, pivImg2_p[1]-10];
+		p3l_p=[pivImg3_p[0]-38, pivImg3_p[1]-10];
+		p3r_p=[pivImg3_p[0]+38, pivImg3_p[1]-10];
 		measure1.cx=textA_p[0];
 		measure1.cy=textA_p[1];
 		measure2.cx=textB_p[0];
@@ -405,7 +405,7 @@ function reloadTable(){
 }
 function checkfull(){
 	console.log("hola");
-	if (tableup.measures>=2 && localStorage.getItem('i24'+localStorage.getItem("curso"))=="no contestada"){
+	if (tableup.measures>=2){
 		localStorage.setItem('i24'+localStorage.getItem("curso"), '1');
 	}
 	if (tableup.measures>=3){
@@ -454,6 +454,13 @@ function onTouch(obj1, obj2){
 function measure(measureTemp, obj1, obj2){
 	var text2;
 	if (obj2.key=='platei'){
+		if(measureTemp.id=='1')
+			obj1.x=43;
+		if(measureTemp.id=='2')
+			obj1.x=215;
+		if(measureTemp.id=='3')
+			obj1.x=388;
+
 		measureTemp.plw=obj1.body.mass;
 		measureTemp.pl=obj1;
 		measureTemp.pl.body.allowGravity=false;
@@ -461,6 +468,13 @@ function measure(measureTemp, obj1, obj2){
 		measureTemp.pl.y= measureTemp.pl.y-3;
 
 	}else{
+		if(measureTemp.id=='1')
+			obj1.x=140;
+		if(measureTemp.id=='2')
+			obj1.x=305;
+		if(measureTemp.id=='3')
+			obj1.x=470;
+
 		measureTemp.prw=obj1.body.mass;
 		measureTemp.pr=obj1;
 		measureTemp.pr.body.allowGravity=false;

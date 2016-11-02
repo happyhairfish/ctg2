@@ -194,7 +194,7 @@ function reloadTable(){
 }
 function checkfull(){
 		console.log("hola");
-	if (table.measures>=2 && localStorage.getItem('i24'+localStorage.getItem("curso"))=="no contestada"){
+	if (table.measures>=2){
 		localStorage.setItem('i24'+localStorage.getItem("curso"), '1');
 	}
 	if (table.measures>=3){
@@ -220,15 +220,27 @@ function update(){
 }
 function onTouch(obj1, rule0){
 	if (rule0.overlap(block1) && obj1.overlap(block1) && !measure1.blockused){
-    	var text = game.add.text(textA_p[0], textA_p[1], textTank(obj1), style);
+			obj1.x=60;
+			obj1.y=270;
+			rule0.x=60;
+			rule0.y=385;
+			var text = game.add.text(textA_p[0], textA_p[1], textTank(obj1), style);
 			text21 = game.add.text(70, 465,textTank(obj1), style2);
     	doMeasure(measure1, obj1, rule0, text);
 	} else if(rule0.overlap(block2)&& obj1.overlap(block2) && !measure2.blockused){
-    	var text = game.add.text(textB_p[0], textB_p[1], textTank(obj1), style);
+			obj1.x=230;
+			obj1.y=270;
+			rule0.x=230;
+			rule0.y=385;
+			var text = game.add.text(textB_p[0], textB_p[1], textTank(obj1), style);
     	doMeasure(measure2, obj1, rule0, text);
 			text22 = game.add.text(240, 465,textTank(obj1), style2);
 	} else if(rule0.overlap(block3)&& obj1.overlap(block3) && !measure3.blockused){
-    	var text = game.add.text(textC_p[0], textC_p[1], textTank(obj1), style);
+			obj1.x=400;
+			obj1.y=270;
+			rule0.x=400;
+			rule0.y=385;
+			var text = game.add.text(textC_p[0], textC_p[1], textTank(obj1), style);
     	doMeasure(measure3, obj1, rule0, text);
 			text23 = game.add.text(410, 465,textTank(obj1), style2);
 	}else {

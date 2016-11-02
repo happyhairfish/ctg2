@@ -175,6 +175,9 @@ function goRight(){
     // else {
     //   window.open("../Story/h39.html", "_self");
     // }
+
+    if(localStorage.getItem("i30"+localStorage.getItem("curso"))!="1")
+      localStorage.setItem("i30"+localStorage.getItem("curso"),"0");
     window.open("../Story/h39.html", "_self");
 }
 function goBack(){

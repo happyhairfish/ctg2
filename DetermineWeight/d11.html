@@ -92,6 +92,8 @@ function preload() {
     m3_p=[640,435];
 }
 function create() {
+		if(localStorage.getItem('i24'+localStorage.getItem("curso"))!='1')
+			localStorage.setItem('i24'+localStorage.getItem("curso"), '0');
     game.stage.backgroundColor = "#FFFFFF";
     ill=game.add.sprite(ill_p[0],ill_p[1], 'ill');
     ill.anchor.setTo(0.5);
@@ -168,9 +170,12 @@ function play_sound(){
     voice.play();
 }
 function goRight(){
+	console.log("hasdola");
     if(A_button_bool){
+			console.log("hola");
         localStorage.setItem('i19'+localStorage.getItem("curso"), '1');
     }else{
+			console.log("chao");
         localStorage.setItem('i19'+localStorage.getItem("curso"), '0');
     }
     window.open("d12.html", "_self");

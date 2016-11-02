@@ -14,7 +14,7 @@
 
 <script type="text/javascript">
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, 'phaser-example', { preload: preload, create: create, update: update, render: render});
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload: preload, create: create, update: update, render: render});
 var ill1;
 var ill2;
 var ill3;
@@ -39,6 +39,8 @@ function preload() {
 }
 
 function create() {
+
+
     game.stage.backgroundColor = '#ffffff';
 
     voice=game.add.audio('voice');
@@ -51,6 +53,7 @@ function create() {
     ill1.scale.setTo(0.8,0.8);
 
     voice_button = game.add.button(390, 525, 'voice_button', play_sound ,this, 1, 0, 2);
+		console.log(localStorage.getItem('i7'+localStorage.getItem("curso")));
 }
 function play_sound()
 {
