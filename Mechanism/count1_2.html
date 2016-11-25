@@ -208,12 +208,12 @@ function goLeft()
 
 function goRight()
 {
-		if(button34_bool || button33_bool)
+		if(button30_bool || button33_bool)
 		{
 			console.log("hola");
 			localStorage.setItem('i7'+localStorage.getItem("curso"),'0');
 		}
-		else if (button30_bool && localStorage.getItem('i7'+localStorage.getItem("curso"))=='0.5')
+		else if (button34_bool)
 		{
 			console.log("adsa");
 			localStorage.setItem('i7'+localStorage.getItem("curso"),'1');
